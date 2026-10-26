@@ -2,290 +2,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Love ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>Will You Marry Me? 💍❤️</title>
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      overflow: hidden;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    .container {
-      width: 92%;
-      max-width: 500px;
-      text-align: center;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-    .envelope {
-      background: white;
-      padding: 40px 25px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.2);
-    }
+.container {
+  width: 92%;
+  max-width: 520px;
+  text-align: center;
+}
 
-    h1 {
-      color: #ff4f81;
-    }
+/* OPEN SCREEN */
+.envelope {
+  background: white;
+  padding: 40px 25px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.2);
+  animation: pop .7s ease;
+}
 
-    button {
-      border: none;
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-size: 18px;
-      cursor: pointer;
-      margin: 10px;
-      transition: .2s;
-    }
+.envelope h1 {
+  color: #ff4f81;
+}
 
-    .open-btn,
-    .yes-btn {
-      background: #ff4f81;
-      color: white;
-    }
+.open-btn {
+  background: #ff4f81;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
 
-    .open-btn:hover,
-    .yes-btn:hover {
-      transform: scale(1.08);
-    }
+/* LETTER */
+.letter {
+  display: none;
+  background: rgba(255,255,255,.97);
+  padding: 30px 25px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.2);
+  text-align: left;
+  animation: pop .7s ease;
+}
 
-    .letter {
-      display: none;
-      background: rgba(255,255,255,.96);
-      padding: 30px 25px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.2);
-      text-align: left;
-      animation: appear .7s ease;
-    }
+.letter h2 {
+  text-align: center;
+  color: #ff4f81;
+}
 
-    .letter h2 {
-      text-align: center;
-      color: #ff4f81;
-    }
+.letter p {
+  color: #444;
+  line-height: 1.7;
+}
 
-    .letter p {
-      line-height: 1.7;
-      color: #444;
-    }
+.question {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #ff4f81 !important;
+  margin-top: 25px;
+}
 
-    .question {
-      text-align: center;
-      color: #ff4f81;
-      font-size: 25px;
-      font-weight: bold;
-      margin-top: 25px;
-    }
+.buttons {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
 
-    .buttons {
-      text-align: center;
-      position: relative;
-      min-height: 80px;
-    }
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 14px 28px;
+  border-radius: 30px;
+}
 
-    .no-btn {
-      background: #ddd;
-      color: #333;
-      position: relative;
-    }
+.yes-btn {
+  background: #ff4f81;
+  color: white;
+}
 
-    .success {
-      display: none;
-      background: white;
-      padding: 35px 20px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.2);
-      text-align: center;
-      animation: appear .7s ease;
-    }
+.no-btn {
+  background: #ddd;
+  color: #333;
+  position: relative;
+}
 
-    .success h1 {
-      font-size: 32px;
-    }
+/* SUCCESS */
+.success {
+  display: none;
+  background: white;
+  padding: 40px 25px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.2);
+  animation: pop .7s ease;
+}
 
-    .hearts {
-      font-size: 35px;
-      margin-top: 20px;
-    }
+.success h1 {
+  color: #ff4f81;
+}
 
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: scale(.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
+.big-hearts {
+  font-size: 40px;
+  margin-top: 20px;
+}
 
-    .heart {
-      position: fixed;
-      font-size: 25px;
-      animation: fall 3s linear forwards;
-      pointer-events: none;
-    }
+/* ANGRY REACTION */
+.angry {
+  position: fixed;
+  font-size: 60px;
+  pointer-events: none;
+  z-index: 999;
+  animation: angryPop .8s ease forwards;
+}
 
-    @keyframes fall {
-      from {
-        transform: translateY(-50px) rotate(0deg);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
+@keyframes angryPop {
+  0% {
+    transform: scale(.2) rotate(-20deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.4) rotate(10deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+/* FALLING HEARTS */
+.heart {
+  position: fixed;
+  top: -50px;
+  font-size: 28px;
+  pointer-events: none;
+  animation: fall linear forwards;
+  z-index: 1000;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- OPEN SCREEN -->
-    <div class="envelope" id="envelope">
-      <h1>💌 OPEN MO</h1>
-      <p><strong>May sasabihin ako...</strong> 👀❤️</p>
+  <!-- OPEN -->
+  <div class="envelope" id="envelope">
 
-      <button class="open-btn" onclick="openLetter()">
-        Open Me 💌
+    <h1>💌 OPEN MO</h1>
+
+    <p>
+      <strong>May sasabihin ako...</strong> 👀❤️
+    </p>
+
+    <button class="open-btn" onclick="openLetter()">
+      OPEN ME 💌
+    </button>
+
+  </div>
+
+
+  <!-- LETTER -->
+  <div class="letter" id="letter">
+
+    <h2>PARA SA JOWA KO ❤️</h2>
+
+    <p>
+      Hi, love. 🥺❤️
+    </p>
+
+    <p>
+      May gusto lang akong sabihin sa’yo na baka hindi ko
+      palaging nasasabi nang maayos.
+    </p>
+
+    <p>
+      Salamat dahil nandiyan ka. Salamat sa mga oras,
+      tawanan, kwentuhan, at sa mga simpleng bagay na
+      ginagawa mo na nagpapasaya sa akin.
+    </p>
+
+    <p>
+      Hindi man ako perfect, gusto kong ipakita sa’yo na
+      mahalaga ka sa akin. Sana patuloy nating alagaan
+      at pahalagahan ang isa’t isa. ❤️
+    </p>
+
+    <p class="question">
+      Will you marry me? 💍❤️
+    </p>
+
+    <div class="buttons">
+
+      <button class="yes-btn" onclick="sayYes()">
+        YES ❤️
       </button>
-    </div>
 
-
-    <!-- LETTER -->
-    <div class="letter" id="letter">
-
-      <h2>PARA SA JOWA KO ❤️</h2>
-
-      <p>
-        Hi, love. 🥺❤️
-      </p>
-
-      <p>
-        May gusto lang akong sabihin sa’yo na baka hindi ko
-        palaging nasasabi nang maayos.
-      </p>
-
-      <p>
-        Salamat dahil nandiyan ka. Salamat sa mga oras,
-        tawanan, kwentuhan, at sa mga simpleng bagay na
-        ginagawa mo na nagpapasaya sa akin.
-      </p>
-
-      <p>
-        Hindi man ako perfect, gusto kong ipakita sa’yo na
-        mahalaga ka sa akin. Sana patuloy nating alagaan
-        at pahalagahan ang isa’t isa. ❤️
-      </p>
-
-      <p class="question">
-        Will you marry me? 💍❤️
-      </p>
-
-      <div class="buttons">
-        <button class="yes-btn" onclick="sayYes()">
-          YES ❤️
-        </button>
-
-        <button class="no-btn" id="noButton"
-          onmouseover="moveNo()"
-          onclick="moveNo()">
-          NO 🥺
-        </button>
-      </div>
-
-    </div>
-
-
-    <!-- SUCCESS -->
-    <div class="success" id="success">
-
-      <h1>THANK YOU! 🥹❤️</h1>
-
-      <p>
-        You just made me the happiest person! 💍❤️
-      </p>
-
-      <p>
-        I LOVE YOU SO MUCH! 😘💕
-      </p>
-
-      <div class="hearts">
-        ❤️ 💕 💖 💗 💍 🥰
-      </div>
+      <button class="no-btn" id="noButton" onclick="moveNo()">
+        NO 🥺
+      </button>
 
     </div>
 
   </div>
 
 
-  <script>
+  <!-- YES RESULT -->
+  <div class="success" id="success">
 
-    function openLetter() {
-      document.getElementById("envelope").style.display = "none";
-      document.getElementById("letter").style.display = "block";
-    }
+    <h1>
+      THANK YOU! 🥹❤️
+    </h1>
 
+    <p>
+      You just made me the happiest person! 💍❤️
+    </p>
 
-    function sayYes() {
+    <p>
+      I LOVE YOU SO MUCH! 😘💕
+    </p>
 
-      document.getElementById("letter").style.display = "none";
-      document.getElementById("success").style.display = "block";
+    <div class="big-hearts">
+      ❤️ 💕 💖 💗 💍 🥰
+    </div>
 
-      // Hearts animation
-      for (let i = 0; i < 40; i++) {
+  </div>
 
-        const heart = document.createElement("div");
-
-        heart.className = "heart";
-
-        const emojis = ["❤️", "💕", "💖", "💗", "💍", "🥰"];
-
-        heart.innerHTML =
-          emojis[Math.floor(Math.random() * emojis.length)];
-
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration =
-          (2 + Math.random() * 3) + "s";
-
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-          heart.remove();
-        }, 5000);
-      }
-    }
+</div>
 
 
-    function moveNo() {
+<script>
 
-      const button = document.getElementById("noButton");
+/* OPEN LETTER */
+function openLetter() {
 
-      const maxX = window.innerWidth - button.offsetWidth - 20;
-      const maxY = window.innerHeight - button.offsetHeight - 20;
+  document.getElementById("envelope").style.display = "none";
 
-      const x = Math.max(10, Math.random() * maxX);
-      const y = Math.max(10, Math.random() * maxY);
+  document.getElementById("letter").style.display = "block";
+}
 
-      button.style.position = "fixed";
-      button.style.left = x + "px";
-      button.style.top = y + "px";
-    }
 
-  </script>
+/* YES BUTTON */
+function sayYes() {
+
+  document.getElementById("letter").style.display = "none";
+
+  document.getElementById("success").style.display = "block";
+
+  createHearts();
+}
+
+
+/* NO BUTTON */
+function moveNo() {
+
+  const button = document.getElementById("noButton");
+
+  /* Angry reaction */
+  showAngry();
+
+  /* Make NO button move */
+  const padding = 20;
+
+  const maxX =
+    window.innerWidth -
+    button.offsetWidth -
+    padding;
+
+  const maxY =
+    window.innerHeight -
+    button.offsetHeight -
+    padding;
+
+  const randomX =
+    Math.floor(Math.random() * maxX);
+
+  const randomY =
+    Math.floor(Math.random() * maxY);
+
+  button.style.position = "fixed";
+
+  button.style.left = randomX + "px";
+
+  button.style.top = randomY + "px";
+}
+
+
+/* ANGRY EMOJI */
+function showAngry() {
+
+  const angry = document.createElement("div");
+
+  angry.className = "angry";
+
+  angry.innerHTML = "😡";
+
+  angry.style.left =
+    Math.random() * 80 + 10 + "vw";
+
+  angry.style.top =
+    Math.random() * 60 + 20 + "vh";
+
+  document.body.appendChild(angry);
+
+  setTimeout(function() {
+    angry.remove();
+  }, 800);
+}
+
+
+/* HEARTS AFTER YES */
+function createHearts() {
+
+  const emojis = [
+    "❤️",
+    "💕",
+    "💖",
+    "💗",
+    "💓",
+    "💍",
+    "🥰"
+  ];
+
+  for (let i = 0; i < 60; i++) {
+
+    const heart =
+      document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML =
+      emojis[
+        Math.floor(
+          Math.random() * emojis.length
+        )
+      ];
+
+    heart.style.left =
+      Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+      2 + Math.random() * 4 + "s";
+
+    heart.style.animationDelay =
+      Math.random() * 2 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+      heart.remove();
+    }, 7000);
+  }
+}
+
+</script>
 
 </body>
 </html>
